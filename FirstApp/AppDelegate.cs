@@ -1,4 +1,7 @@
-﻿using Foundation;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Foundation;
 using UIKit;
 
 namespace FirstApp
@@ -16,8 +19,11 @@ namespace FirstApp
             set;
         }
 
+
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
+            AppCenter.Start("a771df98-870a-4fde-8093-537f302d455b",
+                   typeof(Analytics), typeof(Crashes));
             // create a new window instance based on the screen size
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
